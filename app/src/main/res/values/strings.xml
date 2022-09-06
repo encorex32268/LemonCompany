@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">LemonCompany</string>
+
+    <string name="login_title">ログイン画面</string>
+    <string name="login_button">新規登録</string>
+    <string name="login_edit_text_email">メールアドレス</string>
+    <string name="login_edit_text_email_hint">メールアドレスを入力して下さい</string>
+    <string name="login_text_email_error">※メールアドレスは必要です</string>
+
+
+    <string name="login_edit_text_password">パスワード</string>
+    <string name="login_edit_text_password_hint">半角英数字8文字以上</string>
+
+    <string name="login_edit_text_re_password">パスワード確認用</string>
+    <string name="login_text_re_password_error">※パスワードが一致しません</string>
+
+    <string name="login_checkbox_text_contract">利用規約．プライバシーポリシーに同意します</string>
+
+
+    <string name="login_password_only_number_error">※英字入力が必須です</string>
+    <string name="login_password_length_error">※8文字以上必要です</string>
+
+
+</resources>
