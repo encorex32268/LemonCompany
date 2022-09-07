@@ -23,9 +23,7 @@ class LoginViewModel(
     private val contractVerify: ContractVerify = ContractVerify()
 ) : ViewModel() {
 
-
     val loginState = MutableStateFlow(LoginState())
-
 
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
@@ -49,7 +47,6 @@ class LoginViewModel(
                 loginState.value = loginState.value.copy(
                     rePassword = event.rePassword
                 )
-
             }
             is LoginEvent.AcceptedCheck->{
                 loginState.value = loginState.value.copy(

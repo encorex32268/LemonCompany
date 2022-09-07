@@ -1,11 +1,9 @@
 package com.lihan.lemoncompany
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -55,7 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
         lifecycleScope.launch {
             viewModel.uiEvent.collectLatest {
-                Log.d("TAG", "onCreate: collect ${it}")
                 Toast.makeText(
                     this@MainActivity,
                     R.string.login_button_success,
