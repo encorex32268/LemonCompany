@@ -24,5 +24,10 @@
     <string name="login_password_only_eng_error">※数字入力が必須です</string>
     <string name="login_password_length_error">※8文字以上必要です</string>
 
+    <string name="login_dialog_title">ログイン</string>
+    <string name="login_dialog_content">新規登録しました</string>
+    <string name="login_dialog_ok">はい</string>
+
+
 
 </resources>

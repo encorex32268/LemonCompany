@@ -28,4 +28,21 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/lightBlue</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/white</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>

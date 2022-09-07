@@ -1,5 +1,6 @@
 package com.lihan.lemoncompany
 
+import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.lihan.lemoncompany.databinding.ActivityMainBinding
 import com.lihan.lemoncompany.util.CustomTextWatcher
@@ -53,11 +55,10 @@ class MainActivity : AppCompatActivity() {
         }
         lifecycleScope.launch {
             viewModel.uiEvent.collectLatest {
-                Toast.makeText(
-                    this@MainActivity,
-                    R.string.login_button_success,
-                    Toast.LENGTH_SHORT
-                ).show()
+                AlertDialog.Builder(this@MainActivity,R.style.AlertDialogCustom)
+                    .setTitle(R.string.login_dialog_title)
+                    .setMessage(R.string.login_dialog_content)
+                    .setPositiveButton(R.string.login_dialog_ok,null).show()
             }
         }
         binding.apply {
@@ -70,12 +71,11 @@ class MainActivity : AppCompatActivity() {
             editTextRepassword.addTextChangedListener(CustomTextWatcher{
                 viewModel.onEvent(LoginEvent.RePasswordInput(it))
             })
-            checkBoxAccepted.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
-                override fun onCheckedChanged(p0: CompoundButton?, checkState: Boolean) {
-                        viewModel.onEvent(LoginEvent.AcceptedCheck(checkState))
-                }
-
-            })
+            checkBoxAccepted.setOnCheckedChangeListener { _, checkState ->
+                viewModel.onEvent(
+                    LoginEvent.AcceptedCheck(checkState)
+                )
+            }
             loginButton.setOnClickListener {
                 viewModel.onEvent(LoginEvent.Submit)
             }
