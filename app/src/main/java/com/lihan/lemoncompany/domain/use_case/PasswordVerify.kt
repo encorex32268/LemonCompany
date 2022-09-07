@@ -6,27 +6,31 @@ import com.lihan.lemoncompany.R
 import com.lihan.lemoncompany.domain.VerifyResult
 import java.util.regex.Pattern
 
-class PasswordVerify(
-    private val context: Context
-){
+class PasswordVerify{
 
     operator fun invoke(password : String) : VerifyResult{
         if (password.length < 8){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_password_length_error)
+                errorMsg = "※8文字以上必要です"
             )
         }
         if (password.matches(Regex("[0-9]*"))){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_password_only_number_error)
+                errorMsg = "※英字入力が必須です"
             )
         }
         if(password.matches(Regex("[a-zA-Z]*"))){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_password_only_eng_error)
+                errorMsg = "※数字入力が必須です"
+            )
+        }
+        if(password.matches(Regex("[`~!@#\$%^&*()_\\-+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]"))){
+            return VerifyResult(
+                success = false,
+                errorMsg = "※半角英数字入力して下さい"
             )
         }
         return VerifyResult(

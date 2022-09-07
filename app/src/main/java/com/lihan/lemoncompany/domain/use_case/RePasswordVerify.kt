@@ -6,15 +6,13 @@ import com.lihan.lemoncompany.R
 import com.lihan.lemoncompany.domain.VerifyResult
 import java.util.regex.Pattern
 
-class RePasswordVerify(
-    private val context: Context
-){
+class RePasswordVerify{
 
     operator fun invoke(rePassword : String,password : String) : VerifyResult{
        if (rePassword != password){
            return VerifyResult(
                success = false,
-               errorMsg = context.getString(R.string.login_text_re_password_error)
+               errorMsg = "※パスワードが一致しません"
            )
        }
        return VerifyResult(

@@ -5,21 +5,19 @@ import android.util.Patterns
 import com.lihan.lemoncompany.R
 import com.lihan.lemoncompany.domain.VerifyResult
 
-class EmailVerify(
-    private val context: Context
-){
+class EmailVerify{
 
     operator fun invoke(email : String) : VerifyResult{
-        if (email.isBlank()){
+        if (email.isEmpty()){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_text_email_error)
+                errorMsg = "※メールアドレスは必要です"
             )
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_text_email_error_format)
+                errorMsg = "※入力されたメールアドレスは有効ではありません"
 
             )
         }

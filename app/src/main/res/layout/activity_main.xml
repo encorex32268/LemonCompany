@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
@@ -33,10 +34,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="@dimen/login_card_view_corner_radius"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2">
@@ -91,6 +91,8 @@
                 android:ems="8"
                 android:hint="@string/login_edit_text_email_hint"
                 android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
                 android:textColorHint="@color/gray"
                 app:layout_constraintEnd_toStartOf="@+id/guideline4"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -106,6 +108,8 @@
                 android:ems="10"
                 android:hint="@string/login_edit_text_password_hint"
                 android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
                 android:textColorHint="@color/gray"
                 app:layout_constraintEnd_toStartOf="@+id/guideline4"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -129,7 +133,10 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="@color/lightBlue"
                 android:ems="10"
+                android:hint=' '
                 android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@+id/guideline4"
                 app:layout_constraintStart_toStartOf="@+id/textView5"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -138,16 +145,16 @@
                 android:id="@+id/textMailErrorMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login_text_email_error"
                 android:textColor="@color/orange"
                 app:layout_constraintStart_toStartOf="@+id/editTextEmail"
-                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+
+                />
 
             <TextView
                 android:id="@+id/textPasswordErrorMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login_password_length_error"
                 android:textColor="@color/orange"
                 app:layout_constraintStart_toStartOf="@+id/editTextPassword"
                 app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
@@ -156,10 +163,28 @@
                 android:id="@+id/textRepasswordErrorMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/login_text_re_password_error"
                 android:textColor="@color/orange"
                 app:layout_constraintStart_toStartOf="@+id/editTextRepassword"
                 app:layout_constraintTop_toBottomOf="@+id/editTextRepassword" />
+
+            <CheckBox
+                android:id="@+id/checkBoxAccepted"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/login_checkbox_text_contract"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintStart_toStartOf="@+id/editTextRepassword"
+                app:layout_constraintTop_toBottomOf="@+id/textRepasswordErrorMsg" />
+
+            <TextView
+                android:id="@+id/textAcceptedErrorMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                app:layout_constraintStart_toStartOf="@+id/checkBoxAccepted"
+                app:layout_constraintTop_toBottomOf="@+id/checkBoxAccepted" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -168,10 +193,11 @@
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/button_shape"
         android:cursorVisible="false"
         android:text="@string/login_button"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:cornerRadius="@dimen/cardview_default_radius"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
@@ -184,5 +210,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
 
     <string name="login_title">ログイン画面</string>
     <string name="login_button">新規登録</string>
+    <string name="login_button_success">新規登録しました</string>
     <string name="login_edit_text_email">メールアドレス</string>
     <string name="login_edit_text_email_hint">メールアドレスを入力して下さい</string>
     <string name="login_text_email_error">※メールアドレスは必要です</string>

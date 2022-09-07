@@ -4,15 +4,13 @@ import android.content.Context
 import com.lihan.lemoncompany.R
 import com.lihan.lemoncompany.domain.VerifyResult
 
-class ContractVerify(
-    private val context : Context
-) {
+class ContractVerify{
 
     operator fun invoke(isAccepted : Boolean) : VerifyResult{
         if (!isAccepted){
             return VerifyResult(
                 success = false,
-                errorMsg = context.getString(R.string.login_checkbox_text_contract_error)
+                errorMsg = "※利用規約．プライバシーポリシーの同意が必要です"
             )
         }
         return VerifyResult(
