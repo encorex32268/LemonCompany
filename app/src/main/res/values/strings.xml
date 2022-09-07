@@ -6,6 +6,7 @@
     <string name="login_edit_text_email">メールアドレス</string>
     <string name="login_edit_text_email_hint">メールアドレスを入力して下さい</string>
     <string name="login_text_email_error">※メールアドレスは必要です</string>
+    <string name="login_text_email_error_format">※入力されたメールアドレスは有効ではありません</string>
 
 
     <string name="login_edit_text_password">パスワード</string>
@@ -15,9 +16,11 @@
     <string name="login_text_re_password_error">※パスワードが一致しません</string>
 
     <string name="login_checkbox_text_contract">利用規約．プライバシーポリシーに同意します</string>
+    <string name="login_checkbox_text_contract_error">※利用規約．プライバシーポリシーの同意が必要です</string>
 
 
     <string name="login_password_only_number_error">※英字入力が必須です</string>
+    <string name="login_password_only_eng_error">※数字入力が必須です</string>
     <string name="login_password_length_error">※8文字以上必要です</string>
 
 
