@@ -27,12 +27,16 @@ class PasswordVerify{
                 errorMsg = "※数字入力が必須です"
             )
         }
-        if(password.matches(Regex("[`~!@#\$%^&*()_\\-+=|{}':;',\\\\[\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]"))){
+        var temp = password
+        temp = temp.replace(Regex("[0-9]*"),"")
+        temp = temp.replace(Regex("[a-zA-Z]*"),"")
+        if (temp.isNotEmpty()){
             return VerifyResult(
                 success = false,
-                errorMsg = "※半角英数字入力して下さい"
+                errorMsg = "※英数字入力して下さい"
             )
         }
+
         return VerifyResult(
             success = true
         )

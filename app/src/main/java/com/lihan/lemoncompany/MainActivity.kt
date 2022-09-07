@@ -2,12 +2,14 @@ package com.lihan.lemoncompany
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import com.lihan.lemoncompany.databinding.ActivityMainBinding
 import com.lihan.lemoncompany.util.CustomTextWatcher
@@ -16,6 +18,7 @@ import com.lihan.lemoncompany.presentation.LoginViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@RequiresApi(Build.VERSION_CODES.M)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
@@ -29,13 +32,24 @@ class MainActivity : AppCompatActivity() {
                 viewModel.loginState.collectLatest{
                     binding.apply {
                         textMailErrorMsg.text = it.emailErrorMsg
+                        editTextEmail.backgroundTintList = if (it.emailErrorMsg == null){
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.lightBlue))
+                        }else{
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.orange))
+                        }
                         textPasswordErrorMsg.text = it.passwordErrorMsg
+                        editTextPassword.backgroundTintList=if (it.passwordErrorMsg == null){
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.lightBlue))
+                        }else{
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.orange))
+                        }
                         textRepasswordErrorMsg.text = it.rePasswordErrorMsg
+                        editTextRepassword.backgroundTintList=if (it.rePasswordErrorMsg == null){
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.lightBlue))
+                        }else{
+                            ColorStateList.valueOf(this@MainActivity.getColor(R.color.orange))
+                        }
                         textAcceptedErrorMsg.text = it.isAcceptedErrorMsg
-
-//                        editTextEmail.backgroundTintList = ColorStateList.valueOf(
-//                            resources.getColor(R.color.orange,null)
-//                        )
                     }
             }
         }
